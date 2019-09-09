@@ -35,6 +35,7 @@ pipeline {
 	        steps {
 			    sh "'${mvnHome}/bin/mvn' clean deploy"			
 	        }
+	   }		   
 	   stage('Deploy') {
 	        steps {
 			    deploy adapters: [tomcat8(credentialsId: 'tomcat2', path: '', url: 'http://192.168.35.15:8080')], contextPath: 'my_app', onFailure: false, war: '**/*.war'
