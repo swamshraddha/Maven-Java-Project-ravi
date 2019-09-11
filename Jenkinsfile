@@ -48,11 +48,20 @@ pipeline {
 	   }
 	   stage('Production') {
 	        steps {
-			    timeout(time: 10, unit: 'SECONDS') {
-			    input message: 'Do you want to continue?', submitter: 'Administrator'
+			    timeout(time: 2, unit: 'HOURS') {
+			    input message: 'Deploy to Production?', submitter: 'Administrator'
 			    }
-			}	  
-	   }
+			
+		            sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible-controller', transfers: [sshTransfer(cleanRemote: true, excludes: '', execCommand: '''cd workspace/ansible-files
+git pull origin master
+ansible-playbook -b ansibleRoles/tomcat.yml''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'workspace/ansible-files/ansibleRoles/tomcat/files', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                }
+                post {
+                  success {
+                             echo "Application has been deployed to production successfully!"
+                  }
+               }	   
+        }   
    }
 }
 
