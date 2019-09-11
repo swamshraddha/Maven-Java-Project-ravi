@@ -56,7 +56,7 @@ pipeline {
 			
 		            sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible-controller', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''cd workspace/ansible-files
 git pull origin master
-ansible-playbook -b ansibleRoles/tomcat.yml''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'workspace/ansible-files/ansibleRoles/tomcat/files', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+ansible-playbook -b ansibleRoles/tomcat.yml''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'workspace/ansible-files/ansibleRoles/tomcat/files', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/my_app.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
                 }
                 post {
                   success {
