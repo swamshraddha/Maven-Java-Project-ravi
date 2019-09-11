@@ -1,6 +1,8 @@
 def mvnHome
 pipeline {
-   agent any
+	agent {
+		 label "slave1"
+	}      	
    stages {
        stage('Code from GitHub') {
 	        steps {
