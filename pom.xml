@@ -6,6 +6,7 @@
 	<scm>
 		<url>https://github.com/ravikiran529/Maven-Java-Project</url>
 		<connection>scm:git:https://github.com/ravikiran529/Maven-Java-Project.git</connection>
+		<developerConnection>scm:git:https://github.com/ravikiran529/Maven-Java-Project</developerConnection>
       <tag>HEAD</tag>
   </scm>
 	
