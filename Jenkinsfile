@@ -35,7 +35,8 @@ pipeline {
 	   }
 	   stage('Upload Artifact') {
 	        steps {
-			    sh "'${mvnHome}/bin/mvn' clean deploy"			
+			    sh "'${mvnHome}/bin/mvn' clean deploy"	
+			    
 	        }
 	   }		   
 	   stage('Deploy') {
