@@ -26,7 +26,8 @@ spec:
     spec:
       containers:
         - name: app
-          image: ravikiran529/project:latest
+          image: ravikiran529/project: latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
               protocol: TCP
