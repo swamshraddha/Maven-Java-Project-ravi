@@ -60,12 +60,9 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: my-app.website.com
-    http:
-      paths:
-      - backend:
-          serviceName: service-sample
-          servicePort: 80
+  - backend:
+      serviceName: service-sample
+      servicePort: 80
       
          
          
