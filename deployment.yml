@@ -49,18 +49,7 @@ spec:
       nodePort: 32525
   type: NodePort
   
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: ingress-sample
-  namespace: custom-ns
-  annotations:
-    kubernetes.io/ingress.class: traefik
-spec:
-  backend:
-    serviceName: service-sample
-    servicePort: 80
+
       
          
          
