@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: deploy-sample
+  namespace: custom-ns
+spec: 
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 1
+  revisionHistoryLimit: 4
+  paused: false
+  replicas: 4
+  minReadySeconds: 20
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      name: app-container
+      labels:
+        app: my-app
+        role: webserver
+        version: v2
+    spec:
+      containers:
+        - name: app
+          image: ravikiran529/project:latest
+          ports:
+            - containerPort: 80
+              protocol: TCP
