@@ -50,7 +50,6 @@ spec:
   type: NodePort
   
 ---
----
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -59,10 +58,9 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
 spec:
-  rules:
-  - backend:
-      serviceName: service-sample
-      servicePort: 80
+- backend:
+    serviceName: service-sample
+    servicePort: 80
       
          
          
