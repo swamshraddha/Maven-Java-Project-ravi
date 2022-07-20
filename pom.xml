@@ -54,6 +54,8 @@
         <artifactId>selenium-java</artifactId>
         <version>3.10.0</version>
     </dependency>
+           
+           
   </dependencies>
 
   <build>
@@ -113,6 +115,20 @@
                     </execution>
                 </executions>
             </plugin>
+            
+    <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-checkstyle-plugin</artifactId>
+    <version>3.0.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>8.18</version>
+        </dependency>
+    </dependencies>
+</plugin>
+             
     </plugins>
   </build>
 
